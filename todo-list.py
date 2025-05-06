@@ -75,6 +75,10 @@ class TaskManagerApp:
         for task in self.tasks:
             status = "Выполнено" if task.completed else "Не выполнено"
             self.task_listbox.insert(tk.END, f"{task.description} - {status}")
+            if task.completed:
+                self.task_listbox.itemconfig(tk.END, {'fg': 'green'})
+            else:
+                self.task_listbox.itemconfig(tk.END, {'fg': 'black'})
 
 if __name__ == "__main__":
     root = tk.Tk()
